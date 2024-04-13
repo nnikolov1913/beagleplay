@@ -1,0 +1,45 @@
+header:
+  version: 16
+  includes:
+    - common.yml  
+machine:
+  beagleplay
+distro:
+  poky
+build_system: oe
+repos:
+  poky:
+    url: "https://git.yoctoproject.org/poky"
+    branch: kirkstone
+    path: "/build/layers/poky"
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+  meta-arm:
+    url: "git://git.yoctoproject.org/meta-arm"
+    branch: kirkstone
+    path: "/build/layers/meta-arm"
+    layers:
+      meta-arm:
+      meta-arm-toolchain:
+  meta-ti:
+    url: "https://git.ti.com/cgit/arago-project/meta-ti"
+    branch: kirkstone
+    path: "/build/layers/meta-ti"
+    layers:
+      meta-ti-bsp:
+  meta-beagleplay:
+    url: "git@192.168.0.180:~/meta-beagleplay.git"
+    branch: master
+    path: "/build/layers/meta-beagleplay"
+local_conf_header:
+  meta-beagleplay: |
+    CONF_VERSION = "2"
+    PACKAGE_CLASSES ?= "package_rpm"
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+    KERNEL_DEVICETREE_NOTI = "k3-am625-beagleplay.dtb k3-am625-beagleplay-csi2-ov5640.dtbo k3-am625-beagleplay-csi2-tevi-ov5640.dtbo k3-am625-beagleplay-lincolntech-lcd185-panel.dtbo k3-am625-sk.dtb k3-am625-sk-dmtimer-pwm.dtbo k3-am625-sk-ecap-capture.dtbo k3-am625-sk-lincolntech-lcd185-panel.dtbo k3-am625-sk-mcspi-loopback.dtbo k3-am625-sk-microtips-mf101hie-panel.dtbo k3-am625-sk-microtips-mf103hie-lcd2.dtbo k3-am625-sk-pwm.dtbo k3-am625-sk-rpi-hdr-ehrpwm.dtbo k3-am62x-sk-csi2-imx219.dtbo k3-am62x-sk-csi2-ov5640.dtbo k3-am62x-sk-csi2-tevi-ov5640.dtbo k3-am62x-sk-csi2-v3link-fusion.dtbo k3-am62x-sk-eqep.dtbo k3-am62x-sk-hdmi-audio.dtbo k3-am62x-sk-lpm-wkup-sources.dtbo k3-am62x-sk-mcan.dtbo"
+    IMAGE_BOOT_FILES = "${SPL_BINARYNAME} u-boot.${UBOOT_SUFFIX} tiboot3.bin extlinux.conf;extlinux/extlinux.conf ${KERNEL_DEVICETREE_NOTI}"
+    MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-modules"
+
+target: core-image-minimal
