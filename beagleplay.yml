@@ -30,7 +30,7 @@ repos:
     layers:
       meta-ti-bsp:
   meta-beagleplay:
-    url: "git@192.168.0.180:~/meta-beagleplay.git"
+    url: "https://github.com/nnikolov1913/meta-beagleplay.git"
     branch: master
     path: "/build/layers/meta-beagleplay"
 local_conf_header:
