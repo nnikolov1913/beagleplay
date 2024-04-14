@@ -1,12 +1,10 @@
 # build the image
 Prerequisites:
 
-Install docker engine.
-
+Install docker engine:
 https://docs.docker.com/engine/install/
 
-Install kas
-
+Install kas:
 https://kas.readthedocs.io/en/latest/userguide.html
 
 kas-container checkout beagleplay.yml
