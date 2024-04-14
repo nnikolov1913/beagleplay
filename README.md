@@ -7,6 +7,8 @@ https://docs.docker.com/engine/install/
 Install kas:
 https://kas.readthedocs.io/en/latest/userguide.html
 
+How to build:
+
 kas-container should be used as the YAML files are written for such a usage.
 After cloning this repo, execute these commands:
 ```
