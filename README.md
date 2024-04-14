@@ -20,5 +20,6 @@ In the container build the image:
 bitbake core-image-minimal
 ```
 After some time(usually it takes 1-2 hours or more) image should be ready in deploy-ti/images/beagleplay.
-Flash the image into a SD card and start it in Beagleplay while pressing the boot button.
+Name is somethig like core-image-minimal-beagleplay-XXXXXXXXXXX.rootfs.wic.xz.
+Flash the image into a SD card using balenaetcher for example. Start it in Beagleplay while pressing the boot button.
 
